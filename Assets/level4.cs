@@ -35,7 +35,7 @@ public class level4 : MonoBehaviour
     void Start()
     {
         GameObject camp = GameObject.Find("Main Camera");
-        camp.transform.localEulerAngles = new Vector3(0f, 0f,Random.Range(45f,315f));
+        camp.transform.localEulerAngles = new Vector3(0f, 0f, Random.Range(45f, 315f));
 
         playerpl = GameObject.FindGameObjectWithTag("Player");
         playerpl.GetComponent<playercatch>().maxlife = 200;
@@ -245,7 +245,7 @@ public class level4 : MonoBehaviour
         }
         GUI.skin.label.fontSize = 20;
         GUI.skin.label.normal.textColor = new Vector4(0.75f, 0.74f, 0.95f, 1.0f);
-        GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
+        //GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
         if (gameovers == 1)
         {
 

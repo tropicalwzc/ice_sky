@@ -4,14 +4,15 @@ using UnityEngine;
 using System;
 using System.IO;
 
-public class files  {
+public class files
+{
 
     int cannotopen = 0;
     string filePath;
     string fileName;
     public string getpathandname(string fileName)
     {
-        string path = Path.Combine("Icesky_Data", "icesave");
+        string path = Path.Combine(Application.persistentDataPath, "icesave");
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

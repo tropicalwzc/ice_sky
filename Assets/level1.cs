@@ -13,7 +13,7 @@ public class level1 : MonoBehaviour
     int showorder = 0;
     GameObject bulletpack;
     GameObject enemynow;
-    GameObject playerpl,finder;
+    GameObject playerpl, finder;
     GameObject[] current_enemys = new GameObject[200];
     int current_enemy_total = 0;
     int score = 0;
@@ -25,7 +25,7 @@ public class level1 : MonoBehaviour
     {
         if (current_enemy_total == 0)
             return 1;
-        for(int i=0;i<current_enemy_total;i++)
+        for (int i = 0; i < current_enemy_total; i++)
         {
             if (current_enemys[i] != null)
                 return 1;
@@ -48,17 +48,17 @@ public class level1 : MonoBehaviour
         if (playerpl == null)
         {
             total_life--;
-            if(total_life<=0)
+            if (total_life <= 0)
             {
                 gameovers = 1;
             }
             else
             {
-            playerpl = Instantiate(prefab[20]) as GameObject;
-            playerpl.transform.localPosition = new Vector3(Random.Range(0, 50f) - 25f, 0f, -10f);
-            playerpl.GetComponent<planefiring>().allow_color_change = 0;
-            playerpl.GetComponent<planefiring>().allow_angle_change = 0;
-            playerpl.GetComponent<planefiring>().allow_light_change = 0;
+                playerpl = Instantiate(prefab[20]) as GameObject;
+                playerpl.transform.localPosition = new Vector3(Random.Range(0, 50f) - 25f, 0f, -10f);
+                playerpl.GetComponent<planefiring>().allow_color_change = 0;
+                playerpl.GetComponent<planefiring>().allow_angle_change = 0;
+                playerpl.GetComponent<planefiring>().allow_light_change = 0;
             }
 
         }
@@ -67,45 +67,45 @@ public class level1 : MonoBehaviour
             playerpl.GetComponent<planefiring>().lowest_weapon_update = 1;
             playerpl.GetComponent<planefiring>().score = score;
         }
-        if(gameovers==0)
-        sander++;
-                switch (showorder)
-                {
-                    case 0:
+        if (gameovers == 0)
+            sander++;
+        switch (showorder)
+        {
+            case 0:
 
-                if (current_enemy_total < 10 )
+                if (current_enemy_total < 10)
                 {
-                    if(timeslope>30)
+                    if (timeslope > 30)
                     {
-                    timeslope = 0;
-                    current_enemys[current_enemy_total] = Instantiate(prefab[0]) as GameObject;
-                    current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 20f) - 10f, 24f, -10f);
-                    current_enemy_total++;
+                        timeslope = 0;
+                        current_enemys[current_enemy_total] = Instantiate(prefab[0]) as GameObject;
+                        current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 20f) - 10f, 24f, -10f);
+                        current_enemy_total++;
                     }
                 }
                 else
                 {
-                    if(current_enemy_total<13 && timeslope>10)
+                    if (current_enemy_total < 13 && timeslope > 10)
                     {
-                    current_enemys[current_enemy_total] = Instantiate(prefab[2]) as GameObject;
-                    current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 20f) - 10f, 24f, -10f);
-                    current_enemy_total++;
+                        current_enemys[current_enemy_total] = Instantiate(prefab[2]) as GameObject;
+                        current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 20f) - 10f, 24f, -10f);
+                        current_enemy_total++;
                     }
 
                 }
-                if (is_space_now() ==0)
-                        {
-                            current_enemy_total = 0;
-                            showorder++;
-                        }
-                        break;
-                    case 1:
-
-                if(timeslope>10&&current_enemy_total==0)
+                if (is_space_now() == 0)
                 {
-                current_enemys[current_enemy_total] = Instantiate(prefab[5]) as GameObject;
-                current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 20f) - 10f, 24f, -10f);
-                current_enemy_total++;
+                    current_enemy_total = 0;
+                    showorder++;
+                }
+                break;
+            case 1:
+
+                if (timeslope > 10 && current_enemy_total == 0)
+                {
+                    current_enemys[current_enemy_total] = Instantiate(prefab[5]) as GameObject;
+                    current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 20f) - 10f, 24f, -10f);
+                    current_enemy_total++;
                 }
 
 
@@ -187,24 +187,24 @@ public class level1 : MonoBehaviour
                 }
                 break;
             case 6:
-                 break;
+                break;
 
-                }
+        }
 
 
-            
+
 
     }
     void OnGUI()
     {
-        if(showorder==0)
+        if (showorder == 0)
         {
             GUI.skin.label.fontSize = 50;
             GUI.Label(new Rect(420f, 250f, 720f, 200f), "Level 1  菜鸡总动员");
             GUI.skin.label.fontSize = 25;
             GUI.Label(new Rect(420f, 450f, 720f, 200f), "小红,小黄,小绿虽然每次都被秒\n但是他们仨对不能入选大师空战愤愤不平,于是他们仨想在这里证明自己火力比大师级还猛\n所以请见多识广的蓝球机帮他们起了个霸气的名字'菜鸡总动员'\n他们仨对这个名字非常满意");
         }
-        if(showorder>=victory_scene_num)
+        if (showorder >= victory_scene_num)
         {
             GUI.skin.label.fontSize = 30;
             GUI.Label(new Rect(420f, 250f, 720f, 200f), "恭喜过关");
@@ -215,7 +215,7 @@ public class level1 : MonoBehaviour
         }
         GUI.skin.label.fontSize = 20;
         GUI.skin.label.normal.textColor = new Vector4(0.75f, 0.74f, 0.95f, 1.0f);
-        GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
+        //GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
         if (gameovers == 1)
         {
 

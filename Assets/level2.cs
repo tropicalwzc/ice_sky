@@ -47,8 +47,8 @@ public class level2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameovers==0)
-        timeslope++;
+        if (gameovers == 0)
+            timeslope++;
         playerpl = GameObject.FindGameObjectWithTag("Player");
         if (playerpl == null)
         {
@@ -105,7 +105,7 @@ public class level2 : MonoBehaviour
                 break;
             case 1:
 
-                if (timeslope > 10 &&current_enemy_total<3)
+                if (timeslope > 10 && current_enemy_total < 3)
                 {
                     current_enemys[current_enemy_total] = Instantiate(prefab[13]) as GameObject;
                     current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 20f) - 10f, 24f, -10f);
@@ -146,14 +146,14 @@ public class level2 : MonoBehaviour
                 if (current_enemy_total < 4 && timeslope > 10)
                 {
                     timeslope = 0;
-                    for(int i=0;i<6;i++)
+                    for (int i = 0; i < 6; i++)
                     {
-                    current_enemys[current_enemy_total] = Instantiate(prefab[14+i]) as GameObject;
-                    current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 50f) - 25f, 24f, -10f);
-                    current_enemy_total++;
+                        current_enemys[current_enemy_total] = Instantiate(prefab[14 + i]) as GameObject;
+                        current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 50f) - 25f, 24f, -10f);
+                        current_enemy_total++;
                     }
 
- 
+
                 }
                 if (current_enemy_total < 30 && timeslope > 60)
                 {
@@ -218,11 +218,11 @@ public class level2 : MonoBehaviour
                 if (current_enemy_total < 300 && timeslope > 5)
                 {
                     timeslope = 0;
-                   if(current_enemy_total % 10 != 5)
+                    if (current_enemy_total % 10 != 5)
                     {
-                    current_enemys[current_enemy_total] = Instantiate(prefab[8]) as GameObject;
-                    current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 50f) - 25f, 24f, -10f);
-                    current_enemy_total++;
+                        current_enemys[current_enemy_total] = Instantiate(prefab[8]) as GameObject;
+                        current_enemys[current_enemy_total].transform.localPosition = new Vector3(Random.Range(0, 50f) - 25f, 24f, -10f);
+                        current_enemy_total++;
                     }
                     else
                     {
@@ -232,7 +232,7 @@ public class level2 : MonoBehaviour
                     }
 
                 }
- 
+
 
                 if (is_space_now() == 0)
                 {
@@ -269,7 +269,7 @@ public class level2 : MonoBehaviour
         }
         GUI.skin.label.fontSize = 20;
         GUI.skin.label.normal.textColor = new Vector4(0.75f, 0.74f, 0.95f, 1.0f);
-        GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
+        //GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
         if (gameovers == 1)
         {
 

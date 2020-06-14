@@ -269,7 +269,7 @@ public class level5 : MonoBehaviour
         }
         GUI.skin.label.fontSize = 20;
         GUI.skin.label.normal.textColor = new Vector4(0.75f, 0.74f, 0.95f, 1.0f);
-        GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
+        //GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
         if (gameovers == 1)
         {
 

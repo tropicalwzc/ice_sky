@@ -39,9 +39,9 @@ public class level3 : MonoBehaviour
         playerpl.GetComponent<playercatch>().lifeall = 500;
         playerpl.GetComponent<playercatch>().maxsheld = 200;
         playerpl.GetComponent<planefiring>().lowest_weapon_update = 5;
-        playerpl.GetComponent<planefiring>().allow_color_change=0;
-        playerpl.GetComponent<planefiring>().allow_angle_change=0;
-        playerpl.GetComponent<planefiring>().allow_light_change=0;
+        playerpl.GetComponent<planefiring>().allow_color_change = 0;
+        playerpl.GetComponent<planefiring>().allow_angle_change = 0;
+        playerpl.GetComponent<planefiring>().allow_light_change = 0;
         playerpl.GetComponent<planefiring>().update_mission_supply = 0;
     }
     void destroysmall(int news)
@@ -242,7 +242,7 @@ public class level3 : MonoBehaviour
         }
         GUI.skin.label.fontSize = 20;
         GUI.skin.label.normal.textColor = new Vector4(0.75f, 0.74f, 0.95f, 1.0f);
-        GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
+        //GUI.Label(new Rect(5, Screen.height - 100, (Screen.width - 150) / 4, 50f), "总分   " + score);
         if (gameovers == 1)
         {
 

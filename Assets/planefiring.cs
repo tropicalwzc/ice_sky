@@ -5,6 +5,9 @@ public class planefiring : MonoBehaviour
 {
     public GameObject[] prefab = new GameObject[10];
     public AudioClip AC, BC, CC, DC, EC;
+    public Texture btnshock;
+    public Texture btnrocket;
+    public GUIStyle gooder;
     public int allow_color_change = 1;
     public int allow_angle_change = 1;
     public int allow_light_change = 1;
@@ -248,19 +251,23 @@ public class planefiring : MonoBehaviour
                 GUI.Label(weapontext_pos, "火控系统连接失败");
                 break;
         }
-        if (((Input.GetMouseButton(1) || Input.GetKeyDown(KeyCode.D)) && sander > 10 && (damage_mission_number > 0 || light_mode == 1)) && weaponlevel != -1)
+        if ((GUI.Button(new Rect(Screen.width - proper_big_button_size - 5, Screen.height - proper_big_button_size * 2.5f, proper_big_button_size, proper_big_button_size), btnrocket, gooder) && damage_mission_number > 0 && light_mode == 0) && weaponlevel != -1)
         {
             damage_mission_number--;
             sander = 0;
-            obj = Instantiate(prefab[9]) as GameObject;
-            obj.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y + 2f, this.transform.localPosition.z);
+            for (int i = 0; i < 5; i++)
+            {
+                obj = Instantiate(prefab[9]) as GameObject;
+                obj.transform.localPosition = new Vector3(Random.Range(0, this.transform.localPosition.x), Random.Range(0, this.transform.localPosition.y), this.transform.localPosition.z);
+            }
         }
-        if (((Input.GetMouseButton(2) || Input.GetKeyDown(KeyCode.C)) && sander > 10 && flee_mission_number > 0 && light_mode == 0) && weaponlevel != -1)
+        if ((GUI.Button(new Rect(Screen.width - proper_big_button_size - 5, Screen.height - proper_big_button_size * 4f, proper_big_button_size, proper_big_button_size), btnshock, gooder) && flee_mission_number > 0 && light_mode == 0) && weaponlevel != -1)
         {
             flee_mission_number--;
             sander = 0;
             obj = Instantiate(prefab[8]) as GameObject;
-            obj.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y + 2f, this.transform.localPosition.z);
+            obj.transform.localPosition = new Vector3(Random.Range(0, this.transform.localPosition.x), this.transform.localPosition.y + 2f, this.transform.localPosition.z);
+
         }
         if ((Input.GetMouseButton(0) && sander > heat || Input.GetButtonDown("Fire1") && sander > heat) && weaponlevel != -1)
         {
