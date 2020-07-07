@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class level5 : MonoBehaviour
 {
-
+    // level 5 scene control
     public GameObject[] prefab = new GameObject[30];
     public Texture btnretry;
     public Texture menu;

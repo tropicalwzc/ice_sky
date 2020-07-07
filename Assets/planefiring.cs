@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+// the important controller for player firing
 public class planefiring : MonoBehaviour
 {
     public GameObject[] prefab = new GameObject[10];
@@ -248,14 +248,14 @@ public class planefiring : MonoBehaviour
                 GUI.Label(weapontext_pos, "火控系统连接失败");
                 break;
         }
-        if (((Input.GetMouseButton(1) || Input.GetKeyDown(KeyCode.D)) && sander > 10 && (damage_mission_number > 0 || light_mode == 1)) && weaponlevel != -1)
+        if (((Input.GetMouseButton(1) || Input.GetKeyDown(KeyCode.D)) && sander > 20 && (damage_mission_number > 0 || light_mode == 1)) && weaponlevel != -1)
         {
             damage_mission_number--;
             sander = 0;
             obj = Instantiate(prefab[9]) as GameObject;
             obj.transform.localPosition = new Vector3(this.transform.localPosition.x, this.transform.localPosition.y + 2f, this.transform.localPosition.z);
         }
-        if (((Input.GetMouseButton(2) || Input.GetKeyDown(KeyCode.C)) && sander > 10 && flee_mission_number > 0 && light_mode == 0) && weaponlevel != -1)
+        if (((Input.GetMouseButton(2) || Input.GetKeyDown(KeyCode.C)) && sander > 20 && flee_mission_number > 0 && light_mode == 0) && weaponlevel != -1)
         {
             flee_mission_number--;
             sander = 0;

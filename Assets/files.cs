@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
-
-public class files  {
+// the IO control class
+public class files
+{
 
     int cannotopen = 0;
     string filePath;

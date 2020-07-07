@@ -1,23 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+// enemy damage system control
+public class catchbullet : MonoBehaviour
+{
 
-public class catchbullet : MonoBehaviour {
+    public int lifeall;
+    public int maxlife;
+    public int supplypossible;
+    public int totalsupply = 3;
+    public int defeatscore = 50;
+    public float catchrange = 7f;
 
-	public int lifeall;
-	public int maxlife;
-	public int supplypossible;
-	public int totalsupply=3;
-	public int defeatscore=50;
-	public float catchrange=7f;
-    
-	GameObject senders,supplys;
-	public GameObject[] prefab=new GameObject[10];
-	// Use this for initialization
-	void Start () {
-	maxlife=lifeall;
-	}
-	float totaldistancex;
-	float totaldistancey;
+    GameObject senders, supplys;
+    public GameObject[] prefab = new GameObject[10];
+    // Use this for initialization
+    void Start()
+    {
+        maxlife = lifeall;
+    }
+    float totaldistancex;
+    float totaldistancey;
     int cutout = 0;
     void extra_damage(int damage)
     {
@@ -106,32 +108,34 @@ public class catchbullet : MonoBehaviour {
         Destroy(this.gameObject);
         lifeall = 10;
     }
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update()
+    {
 
-        if(lifeall<maxlife/3&&cutout==0)
+        if (lifeall < maxlife / 3 && cutout == 0)
         {
             int firerate = this.GetComponent<enemyfiring>().firerate;
-            this.GetComponent<enemyfiring>().firerate = firerate/2;
+            this.GetComponent<enemyfiring>().firerate = firerate / 2;
             cutout = 1;
         }
-	GameObject []allbullet=GameObject.FindGameObjectsWithTag("playerbullet");
+        GameObject[] allbullet = GameObject.FindGameObjectsWithTag("playerbullet");
 
-	foreach(GameObject finder in allbullet)
-	{
-	    totaldistancex=finder.transform.localPosition.x-this.transform.localPosition.x;
-		totaldistancey=finder.transform.localPosition.y-this.transform.localPosition.y;
-		float total=totaldistancex*totaldistancex+totaldistancey*totaldistancey;
-		if(total<catchrange)
-		{
-			Destroy(finder.gameObject);
-			lifeall--;
-			this.SendMessage("receivehp",(float)lifeall/(float)maxlife,SendMessageOptions.DontRequireReceiver);
-		}
-		if(lifeall<1){
-        release_supply();
-		}
-	}
+        foreach (GameObject finder in allbullet)
+        {
+            totaldistancex = finder.transform.localPosition.x - this.transform.localPosition.x;
+            totaldistancey = finder.transform.localPosition.y - this.transform.localPosition.y;
+            float total = totaldistancex * totaldistancex + totaldistancey * totaldistancey;
+            if (total < catchrange)
+            {
+                Destroy(finder.gameObject);
+                lifeall--;
+                this.SendMessage("receivehp", (float)lifeall / (float)maxlife, SendMessageOptions.DontRequireReceiver);
+            }
+            if (lifeall < 1)
+            {
+                release_supply();
+            }
+        }
 
-	}
+    }
 }

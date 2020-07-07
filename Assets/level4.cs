@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class level4 : MonoBehaviour
 {
-
+    // level 4 scene control
     public GameObject[] prefab = new GameObject[30];
     public Texture btnretry;
     public Texture menu;
@@ -35,7 +35,7 @@ public class level4 : MonoBehaviour
     void Start()
     {
         GameObject camp = GameObject.Find("Main Camera");
-        camp.transform.localEulerAngles = new Vector3(0f, 0f,Random.Range(45f,315f));
+        camp.transform.localEulerAngles = new Vector3(0f, 0f, Random.Range(45f, 315f));
 
         playerpl = GameObject.FindGameObjectWithTag("Player");
         playerpl.GetComponent<playercatch>().maxlife = 200;

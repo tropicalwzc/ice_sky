@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class proper_ui : MonoBehaviour {
+//the proper ui for different screen size
+public class proper_ui : MonoBehaviour
+{
 
     public int proper_big_button = 30;
     public int proper_bar_height = 20;
@@ -18,9 +19,10 @@ public class proper_ui : MonoBehaviour {
             proper_text_size = 35;
             proper_font_size = 35;
         }
-        else{
+        else
+        {
 
-            if(Screen.height>900)
+            if (Screen.height > 900)
             {
                 proper_big_button = 60;
                 proper_bar_height = 40;

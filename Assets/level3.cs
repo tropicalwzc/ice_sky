@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 public class level3 : MonoBehaviour
 {
-
+    // level 3 scene control
     public GameObject[] prefab = new GameObject[30];
     public Texture btnretry;
     public Texture menu;
@@ -39,9 +39,9 @@ public class level3 : MonoBehaviour
         playerpl.GetComponent<playercatch>().lifeall = 500;
         playerpl.GetComponent<playercatch>().maxsheld = 200;
         playerpl.GetComponent<planefiring>().lowest_weapon_update = 5;
-        playerpl.GetComponent<planefiring>().allow_color_change=0;
-        playerpl.GetComponent<planefiring>().allow_angle_change=0;
-        playerpl.GetComponent<planefiring>().allow_light_change=0;
+        playerpl.GetComponent<planefiring>().allow_color_change = 0;
+        playerpl.GetComponent<planefiring>().allow_angle_change = 0;
+        playerpl.GetComponent<planefiring>().allow_light_change = 0;
         playerpl.GetComponent<planefiring>().update_mission_supply = 0;
     }
     void destroysmall(int news)
